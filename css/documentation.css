@@ -1,0 +1,340 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --rose:       #f472b6;
+  --rose-light: #fce7f3;
+  --rose-pale:  #fdf2f8;
+  --mauve:      #c084fc;
+  --text:       #4b4453;
+  --muted:      #9e8fa5;
+  --bg:         #fff;
+  --border:     #f3d5e8;
+  --radius:     14px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  color: var(--text);
+  background: var(--rose-pale);
+  line-height: 1.7;
+}
+
+/* ── HEADER ── */
+header {
+  background: white;
+  border-bottom: 2px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0.8rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.logo {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--rose);
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+}
+
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  transition: background 0.2s, color 0.2s;
+}
+
+nav a:hover {
+  background: var(--rose-light);
+  color: var(--rose);
+}
+
+/* ── MAIN ── */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+}
+
+/* ── HERO ── */
+.hero {
+  text-align: center;
+  padding: 3.5rem 1rem 2.5rem;
+  border-bottom: 2px dashed var(--border);
+  margin-bottom: 1rem;
+}
+
+.tag {
+  font-size: 0.78rem;
+  color: var(--mauve);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+
+h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--rose);
+  margin-bottom: 0.8rem;
+}
+
+.hero-desc {
+  color: var(--muted);
+  font-size: 1rem;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* ── SECTIONS ── */
+section {
+  padding: 2.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+section:last-child {
+  border-bottom: none;
+}
+
+h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--rose);
+  margin-bottom: 1.4rem;
+}
+
+h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.2rem;
+}
+
+p {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.placeholder {
+  color: #d8b4cc;
+  font-style: italic;
+}
+
+/* ── TEAM CARDS ── */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: white;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.4rem;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(244, 114, 182, 0.15);
+}
+
+.avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--rose-light);
+  color: var(--rose);
+  font-weight: 700;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.8rem;
+  border: 2px solid var(--border);
+}
+
+.role {
+  font-size: 0.78rem;
+  color: var(--mauve);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.desc {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+/* ── PILLS ── */
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.pill {
+  background: white;
+  border: 1.5px solid var(--border);
+  border-radius: 999px;
+  padding: 0.3rem 0.9rem;
+  font-size: 0.82rem;
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ── REPO ── */
+.repo {
+  background: white;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.9rem 1.2rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.repo a {
+  color: var(--rose);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.repo a:hover {
+  text-decoration: underline;
+}
+
+/* ── TABLE ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1.5px solid var(--border);
+  font-size: 0.88rem;
+}
+
+thead {
+  background: var(--rose-light);
+}
+
+th {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  color: var(--rose);
+  font-size: 0.82rem;
+}
+
+td {
+  padding: 0.75rem 1rem;
+  border-top: 1px solid var(--border);
+  color: var(--text);
+  vertical-align: top;
+}
+
+td:first-child {
+  font-weight: 700;
+  color: var(--mauve);
+  white-space: nowrap;
+}
+
+/* ── DIFFICULTIES ── */
+.diff {
+  background: white;
+  border: 1.5px solid var(--border);
+  border-left: 4px solid var(--rose);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 1.2rem 1.4rem;
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+  margin-bottom: 0.9rem;
+}
+
+.diff-num {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--rose-light);
+  min-width: 36px;
+  line-height: 1;
+  padding-top: 2px;
+}
+
+/* ── DIAGRAMS ── */
+.diagrams {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.diagram-box {
+  background: white;
+  border: 1.5px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 1.8rem 1rem;
+  text-align: center;
+}
+
+.diagram-icon {
+  font-size: 2rem;
+  margin-bottom: 0.6rem;
+}
+
+.diagram-label {
+  font-weight: 700;
+  color: var(--text);
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+}
+
+/* ── RETRO ── */
+.retro {
+  background: white;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.4rem;
+}
+
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+  border-top: 2px solid var(--border);
+  background: white;
+}
