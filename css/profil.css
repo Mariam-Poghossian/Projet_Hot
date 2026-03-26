@@ -1,0 +1,168 @@
+/* ════════════════════════════════
+   profil.css — Page Profil
+   ════════════════════════════════ */
+
+/* Page fade-in */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Wrapper ── */
+.profile-wrapper {
+  max-width: 560px;
+  margin: 48px auto 80px;
+  padding: 0 20px;
+  animation: fadeUp 0.4s ease both;
+}
+
+/* ── Card ── */
+.profile-card {
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 8px 40px rgba(192, 132, 252, 0.10);
+  overflow: hidden;
+}
+
+/* ── Banner ── */
+.profile-banner {
+  height: 110px;
+  background: linear-gradient(135deg, var(--rose) 0%, var(--mauve) 100%);
+  position: relative;
+}
+
+/* ── Avatar ── */
+.profile-avatar-wrap {
+  position: absolute;
+  bottom: -40px;
+  left: 36px;
+}
+
+.profile-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--rose-light), var(--rose-pale));
+  border: 4px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  box-shadow: 0 4px 16px rgba(192, 132, 252, 0.2);
+}
+
+/* ── Body ── */
+.profile-body {
+  padding: 52px 36px 36px;
+}
+
+.profile-name {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text);
+  margin: 0 0 4px;
+}
+
+.profile-role {
+  font-size: 0.85rem;
+  color: var(--mauve);
+  font-weight: 600;
+  margin: 0 0 28px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ── Fields grid ── */
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.profile-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.profile-field.full {
+  grid-column: 1 / -1;
+}
+
+.field-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--border);
+}
+
+.field-value {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--rose-pale);
+  border-radius: var(--radius);
+  padding: 10px 14px;
+}
+
+/* ── Back link ── */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 24px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.back-link:hover {
+  color: var(--mauve);
+}
+
+/* ── Header auth buttons ── */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-auth {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 8px 18px;
+  border-radius: 99px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  letter-spacing: 0.02em;
+}
+
+.btn-auth:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+#btn-profile {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: linear-gradient(135deg, var(--mauve), var(--rose));
+  color: #fff;
+  text-decoration: none;
+}
+
+
+#btn-logout {
+  background: transparent;
+  color: var(--muted);
+  border: 2px solid var(--border);
+}
+
+#btn-logout:hover {
+  background: var(--rose-pale);
+}

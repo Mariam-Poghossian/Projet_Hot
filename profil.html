@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/profil.css">
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo-link">
+        <img src="img/Logo.png" alt="Logo" class="logo-img">
+      </a>
+      <nav>
+        <a href="index.html">Accueil</a>
+        <a href="documentation.html">Documentation</a>
+      </nav>
+      <div class="header-actions">
+        <a id="btn-profile" class="btn-auth" href="profil.html">
+          <span class="avatar">🌸</span>
+          Profil
+        </a>
+        <button id="btn-logout" class="btn-auth" onclick="logout()">Se déconnecter</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="profile-wrapper">
+
+      <a href="index.html" class="back-link">← Retour à l'accueil</a>
+
+      <div class="profile-card">
+        <div class="profile-banner">
+          <div class="profile-avatar-wrap">
+            <div class="profile-avatar">🌸</div>
+          </div>
+        </div>
+
+        <div class="profile-body">
+          <h1 class="profile-name">Sinda Roffidal</h1>
+          <p class="profile-role">Membre du groupe</p>
+
+          <div class="profile-grid">
+            <div class="profile-field">
+              <span class="field-label">Prénom</span>
+              <span class="field-value">Sinda</span>
+            </div>
+            <div class="profile-field">
+              <span class="field-label">Nom</span>
+              <span class="field-value">Roffidal</span>
+            </div>
+            <div class="profile-field">
+              <span class="field-label">Date de naissance</span>
+              <span class="field-value">07 janvier 2006</span>
+            </div>
+            <div class="profile-field">
+              <span class="field-label">Téléphone</span>
+              <span class="field-value">07 58 43 95 40</span>
+            </div>
+            <div class="profile-field full">
+              <span class="field-label">Adresse e-mail</span>
+              <span class="field-value">mariam.amara@etu.univ-amu.fr</span>
+            </div>
+            <div class="profile-field full">
+              <span class="field-label">Type de profil</span>
+              <span class="field-value">Vous avez un profil qui vour permet de voir les températures</span>
+            </div>
+            <div class="profile-field">
+              <span class="field-label">Formation</span>
+              <span class="field-value">BUT Informatique</span>
+            </div>
+            <div class="profile-field">
+              <span class="field-label">Groupe</span>
+              <span class="field-value">A2 </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    BUT &nbsp;·&nbsp; Groupe HotHotHot &nbsp;·&nbsp; 2024 🌸
+  </footer>
+
+  <script src="profil.js"></script>
+
+</body>
+</html>
