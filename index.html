@@ -52,14 +52,34 @@
       <p>Interface domotique — capteurs de température en temps réel.</p>
     </section>
 
-    <p style="text-align:center; color:#9e8fa5; font-size:0.9rem;">Contenu à venir…</p>
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="realtime">Données en temps réel</button>
+      <button class="tab-btn" data-tab="historique">Historique</button>
+    </div>
+
+    <div class="tab-content active" id="realtime">
+    </div>
+
+    <div class="tab-content" id="historique">
+    </div>
+
   </main>
 
   <footer>
-    BUT &nbsp;·&nbsp; Groupe HotHotHot &nbsp;·&nbsp; 2024 🌸
+    BUT &nbsp;·&nbsp; Groupe HotHotHot &nbsp;·&nbsp; 2026 🌸
   </footer>
 
   <script src="main.js"></script>
+  <script>
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
 
 </body>
 </html>

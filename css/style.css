@@ -161,6 +161,79 @@ main {
   align-items: center;
   text-decoration: none;
 }
+/* ── ONGLETS ── */
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 0;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 0.5rem 1.2rem;
+  border-radius: 999px 999px 0 0;
+  transition: background 0.2s, color 0.2s;
+}
+
+.tab-btn:hover {
+  background: var(--rose-light);
+  color: var(--rose);
+}
+
+.tab-btn.active {
+  background: var(--rose-light);
+  color: var(--rose);
+  border-bottom: 2px solid var(--rose);
+}
+
+/* ── CONTENU ONGLETS ── */
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* ── CARDS CAPTEURS ── */
+.capteurs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.capteur-card {
+  background: white;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+}
+
+.capteur-card h3 {
+  font-size: 1.1rem;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.temp-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--rose);
+}
+
+.muted-text {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
 
 .logo-img {
   height:63px;

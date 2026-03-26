@@ -321,6 +321,45 @@ td:first-child {
   margin-bottom: 0.4rem;
 }
 
+/* diagramme de cas d'utilisation scrollable */
+.diagram-scroll {
+  background: #ffffff;
+  border: 1px solid #d3d1c7;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.diagram-scroll-header {
+  padding: 0.75rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.diagram-scroll-header h3 {
+  font-size: 14px;
+  font-weight: 500;
+  color: #5f5e5a;
+  margin: 0;
+}
+
+.diagram-scroll-inner {
+  overflow: auto;
+  max-height: 500px;
+  padding: 1.5rem;
+  background: #fafaf8;
+  cursor: grab;
+}
+
+.diagram-scroll-inner:active {
+  cursor: grabbing;
+}
+
+.diagram-scroll-inner img {
+  display: block;
+  max-width: none;
+  height: auto;
+}
+
 /* ── RETRO ── */
 .retro {
   background: white;
