@@ -7,62 +7,93 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <script src="assets/lottie-player.js"></script>
+  <script src="assets/lottie-player.js" defer></script>
+  <script src="js/models/TemperatureModel.js" defer></script>
+  <script src="js/models/HistoryModel.js" defer></script>
+  <script src="js/models/AlertModel.js" defer></script>
+  <script src="js/controllers/WebSocketController.js" defer></script>
+  <script src="js/views/DashboardView.js" defer></script>
+  <script src="js/views/NotificationView.js" defer></script>
+  <script src="js/app.js" defer></script>
 </head>
 <body>
 
   <header>
     <div class="header-inner">
       <a href="index.html" class="logo-link">
-        <img src="img/Logo.png" alt="Logo" class="logo-img">
-      </a>
-
+            <img src="img/Logo.png" alt="Logo" class="logo-img">
+      </a>      
       <nav>
         <a href="index.html" class="active">Accueil</a>
         <a href="documentation.html">Documentation</a>
-      </nav>
-
-      <div class="header-actions">
-        <!-- Bouton unique : texte change selon l'état -->
+        <div class="header-actions">
         <button id="btn-toggle" class="btn-auth btn-login">
           Se connecter
         </button>
 
-        <!-- Visible uniquement quand connecté -->
         <a id="btn-profile" class="btn-auth btn-profile hidden" href="profil.html">
           <span class="avatar">🌸</span>
           Profil
         </a>
       </div>
+      </nav>
     </div>
   </header>
 
   <main>
     <section class="hero">
-      <h1 style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <h1 style="display: flex; align-items: center; justify-content: center; gap: 8px;">
         Projet HotHotHot
         <lottie-player
           src="assets/Fire.json"
           background="transparent"
           speed="1"
           style="width: 80px; height: 80px; vertical-align: middle; margin-bottom: 40px;"
-          loop autoplay
+          loop
+          autoplay
         ></lottie-player>
       </h1>
       <p>Interface domotique — capteurs de température en temps réel.</p>
     </section>
 
-    <div class="tabs">
-      <button class="tab-btn active" data-tab="realtime">Données en temps réel</button>
-      <button class="tab-btn" data-tab="historique">Historique</button>
-    </div>
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="tab-realtime">⚡ Temps réel</button>
+    <button class="tab-btn"        data-tab="tab-history">📋 Historique</button>
+  </div>
 
-    <div class="tab-content active" id="realtime">
-    </div>
+  <div id="tab-realtime" class="tab-panel active">
+    <div class="capteurs-grid">
 
-    <div class="tab-content" id="historique">
-    </div>
+      <div id="capteur-interieur" class="capteur-card">
+        <div class="capteur-titre">🏠 Intérieur</div>
+        <div class="capteur-valeur">-- °C</div>
+        <div class="capteur-phrase">En attente de données…</div>
+        <div class="capteur-stats">
+          <span class="capteur-min">Min : --</span>
+          <span class="capteur-max">Max : --</span>
+        </div>
+        <div class="capteur-heure">--:--:--</div>
+      </div>
 
+      <div id="capteur-exterieur" class="capteur-card">
+        <div class="capteur-titre">🌳 Extérieur</div>
+        <div class="capteur-valeur">-- °C</div>
+        <div class="capteur-phrase">En attente de données…</div>
+        <div class="capteur-stats">
+          <span class="capteur-min">Min : --</span>
+          <span class="capteur-max">Max : --</span>
+        </div>
+        <div class="capteur-heure">--:--:--</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="tab-history" class="tab-panel">
+    <p style="text-align:center; color:var(--muted); padding:2rem;">
+      Historique — en cours de développement 🛠️
+    </p>
+  </div>
   </main>
 
   <footer>

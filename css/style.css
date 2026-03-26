@@ -251,3 +251,30 @@ footer {
   border-top: 2px solid var(--border);
   background: white;
 }
+
+
+/* ── ONGLETS ── */
+.tabs { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+.tab-btn { background: none; border: none; padding: 0.5rem 1.2rem; border-radius: 999px; font-family: inherit; font-size: 0.9rem; font-weight: 600; color: var(--muted); cursor: pointer; transition: background 0.2s, color 0.2s; }
+.tab-btn:hover, .tab-btn.active { background: var(--rose-light); color: var(--rose); }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* ── CARTES CAPTEURS ── */
+.capteurs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; }
+.capteur-card { background: white; border: 2px solid var(--border); border-radius: var(--radius); padding: 1.5rem; text-align: center; transition: border-color 0.3s, box-shadow 0.3s; }
+.capteur-card.card--chaud { border-color: #fb923c; box-shadow: 0 0 0 4px #fff3e0; }
+.capteur-card.card--froid { border-color: #60a5fa; box-shadow: 0 0 0 4px #e3f2fd; }
+.capteur-card.card--normal { border-color: #86efac; }
+.capteur-titre { font-size: 0.9rem; font-weight: 700; color: var(--muted); margin-bottom: 0.5rem; }
+.capteur-valeur { font-size: 3rem; font-weight: 700; color: var(--rose); line-height: 1; margin: 0.5rem 0; }
+.capteur-phrase { font-size: 0.9rem; color: var(--text); margin-bottom: 1rem; }
+.capteur-stats { display: flex; justify-content: center; gap: 1.5rem; font-size: 0.82rem; color: var(--muted); margin-bottom: 0.5rem; }
+.capteur-heure { font-size: 0.78rem; color: var(--muted); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .header-inner { padding: 0.6rem 1rem; }
+  main { padding: 1.5rem 1rem; }
+  .capteur-valeur { font-size: 2.2rem; }
+}
