@@ -66,14 +66,69 @@ nav a {
   font-weight: 600;
   padding: 0.35rem 0.9rem;
   border-radius: 999px;
-  transition: background 0.2s, color 0.2s;
+  transition: background (0.2s, color 0.2s);
 }
 
-nav a:hover,
-nav a.active {
-  background: var(--rose-light);
-  color: var(--rose);
+/* ── Header auth buttons ── */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
+
+    .btn-auth {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      transition: transform 0.15s, box-shadow 0.15s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+ 
+    .btn-auth:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    }
+ 
+    .btn-login {
+      background: linear-gradient(135deg, #f472b6, #c084fc);
+      color: #fff;
+    }
+  
+ 
+    .btn-logout {
+      background: transparent;
+      color: #9e8fa5;
+      border: 2px solid #f3d5e8;
+    }
+ 
+    .btn-logout:hover {
+      background: #fce7f3;
+      color: #f472b6;
+    }
+ 
+    .btn-profil-link {
+      background: linear-gradient(135deg, #c084fc, #8f5bbf);
+      color: #fff;
+    }
+
+    #btn-profile {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: linear-gradient(135deg, var(--mauve), var(--rose));
+  color: #fff;
+  text-decoration: none;
+}
+ 
+    .hidden { display: none !important; }
 
 /* ── MAIN ── */
 main {
@@ -112,6 +167,7 @@ main {
   width: auto;
   object-fit: contain;
 }
+
 
 /* ── FOOTER ── */
 footer {

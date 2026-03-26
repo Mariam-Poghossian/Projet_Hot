@@ -14,38 +14,52 @@
   <header>
     <div class="header-inner">
       <a href="index.html" class="logo-link">
-            <img src="img/Logo.png" alt="Logo" class="logo-img">
-      </a>      
+        <img src="img/Logo.png" alt="Logo" class="logo-img">
+      </a>
+
       <nav>
         <a href="index.html" class="active">Accueil</a>
         <a href="documentation.html">Documentation</a>
       </nav>
+
+      <div class="header-actions">
+        <!-- Bouton unique : texte change selon l'état -->
+        <button id="btn-toggle" class="btn-auth btn-login">
+          Se connecter
+        </button>
+
+        <!-- Visible uniquement quand connecté -->
+        <a id="btn-profile" class="btn-auth btn-profile hidden" href="profil.html">
+          <span class="avatar">🌸</span>
+          Profil
+        </a>
+      </div>
     </div>
   </header>
 
   <main>
     <section class="hero">
-            <h1 style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+      <h1 style="display: flex; align-items: center; justify-content: center; gap: 8px;">
         Projet HotHotHot
         <lottie-player
           src="assets/Fire.json"
           background="transparent"
           speed="1"
           style="width: 80px; height: 80px; vertical-align: middle; margin-bottom: 40px;"
-          loop
-          autoplay
+          loop autoplay
         ></lottie-player>
       </h1>
       <p>Interface domotique — capteurs de température en temps réel.</p>
     </section>
 
-    <!-- Le contenu de l'app viendra ici -->
     <p style="text-align:center; color:#9e8fa5; font-size:0.9rem;">Contenu à venir…</p>
   </main>
 
   <footer>
     BUT &nbsp;·&nbsp; Groupe HotHotHot &nbsp;·&nbsp; 2024 🌸
   </footer>
+
+  <script src="main.js"></script>
 
 </body>
 </html>
