@@ -21,28 +21,23 @@
   <header>
     <div class="header-inner">
       <a href="index.html" class="logo-link">
-            <img src="img/Logo.png" alt="Logo" class="logo-img">
-      </a>      
+        <img src="img/Logo.png" alt="Logo" class="logo-img">
+      </a>
       <nav>
         <a href="index.html" class="active">Accueil</a>
         <a href="documentation.html">Documentation</a>
-        <div class="header-actions">
-        <button id="btn-toggle" class="btn-auth btn-login">
-          Se connecter
-        </button>
-
-        <a id="btn-profile" class="btn-auth btn-profile hidden" href="profil.html">
-          <span class="avatar">🌸</span>
-          Profil
+      </nav>
+      <div class="header-actions">
+        <button id="btn-toggle" class="btn-auth btn-login">Se connecter</button>
+        <a id="btn-profile" class="btn-auth hidden" href="profil.html">
+          <span>🌸</span> Profil
         </a>
       </div>
-      </nav>
-    </div>
-  </header>
-
+  </div>
+</header>
   <main>
     <section class="hero">
-            <h1 style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+      <h1 style="display: flex; align-items: center; justify-content: center; gap: 8px;">
         Projet HotHotHot
         <lottie-player
           src="assets/Fire.json"
@@ -56,51 +51,24 @@
       <p>Interface domotique — capteurs de température en temps réel.</p>
     </section>
 
-  <div class="tabs">
-    <button class="tab-btn active" data-tab="tab-realtime">⚡ Temps réel</button>
-    <button class="tab-btn"        data-tab="tab-history">📋 Historique</button>
-  </div>
-
-  <div id="tab-realtime" class="tab-panel active">
-    <div class="capteurs-grid">
-
-      <div id="capteur-interieur" class="capteur-card">
-        <div class="capteur-titre">🏠 Intérieur</div>
-        <div class="capteur-valeur">-- °C</div>
-        <div class="capteur-phrase">En attente de données…</div>
-        <div class="capteur-stats">
-          <span class="capteur-min">Min : --</span>
-          <span class="capteur-max">Max : --</span>
-        </div>
-        <div class="capteur-heure">--:--:--</div>
-      </div>
-
-      <div id="capteur-exterieur" class="capteur-card">
-        <div class="capteur-titre">🌳 Extérieur</div>
-        <div class="capteur-valeur">-- °C</div>
-        <div class="capteur-phrase">En attente de données…</div>
-        <div class="capteur-stats">
-          <span class="capteur-min">Min : --</span>
-          <span class="capteur-max">Max : --</span>
-        </div>
-        <div class="capteur-heure">--:--:--</div>
-      </div>
-
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="realtime">Données en temps réel</button>
+      <button class="tab-btn" data-tab="historique">Historique</button>
     </div>
-  </div>
 
-  <div id="tab-history" class="tab-panel">
-    <p style="text-align:center; color:var(--muted); padding:2rem;">
-      Historique — en cours de développement 🛠️
-    </p>
-  </div>
+    <div class="tab-content active" id="realtime">
+    </div>
+
+    <div class="tab-content" id="historique">
+    </div>
+
   </main>
 
   <footer>
     BUT &nbsp;·&nbsp; Groupe HotHotHot &nbsp;·&nbsp; 2026 🌸
   </footer>
-
   <script src="main.js"></script>
+
   <script>
     document.querySelectorAll('.tab-btn').forEach(btn => {
       btn.addEventListener('click', () => {
