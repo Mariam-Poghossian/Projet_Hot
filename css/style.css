@@ -48,14 +48,21 @@ header {
   gap: 0.5rem;
 }
 
-.logo {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--rose);
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo-img {
+  height: 63px;
+  width: auto;
+  object-fit: contain;
 }
 
 nav {
   display: flex;
+  align-items: center;
   gap: 0.2rem;
 }
 
@@ -66,60 +73,60 @@ nav a {
   font-weight: 600;
   padding: 0.35rem 0.9rem;
   border-radius: 999px;
-  transition: background (0.2s, color 0.2s);
+  transition: background 0.2s, color 0.2s;
 }
 
-/* ── Header auth buttons ── */
+nav a:hover,
+nav a.active {
+  background: var(--rose-light);
+  color: var(--rose);
+}
+
+/* ── HEADER AUTH ── */
 .header-actions {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-    .btn-auth {
-      font-family: 'Nunito', sans-serif;
-      font-size: 0.88rem;
-      font-weight: 700;
-      padding: 8px 18px;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      letter-spacing: 0.02em;
-      transition: transform 0.15s, box-shadow 0.15s;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-    }
- 
-    .btn-auth:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-    }
- 
-    .btn-login {
-      background: linear-gradient(135deg, #f472b6, #c084fc);
-      color: #fff;
-    }
-  
- 
-    .btn-logout {
-      background: transparent;
-      color: #9e8fa5;
-      border: 2px solid #f3d5e8;
-    }
- 
-    .btn-logout:hover {
-      background: #fce7f3;
-      color: #f472b6;
-    }
- 
-    .btn-profil-link {
-      background: linear-gradient(135deg, #c084fc, #8f5bbf);
-      color: #fff;
-    }
+.btn-auth {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: transform 0.15s, box-shadow 0.15s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
 
-    #btn-profile {
+.btn-auth:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+.btn-login {
+  background: linear-gradient(135deg, #f472b6, #c084fc);
+  color: #fff;
+}
+
+.btn-logout {
+  background: transparent;
+  color: #9e8fa5;
+  border: 2px solid #f3d5e8;
+}
+
+.btn-logout:hover {
+  background: #fce7f3;
+  color: #f472b6;
+}
+
+#btn-profile {
   display: flex;
   align-items: center;
   gap: 7px;
@@ -127,8 +134,8 @@ nav a {
   color: #fff;
   text-decoration: none;
 }
- 
-    .hidden { display: none !important; }
+
+.hidden { display: none !important; }
 
 /* ── MAIN ── */
 main {
@@ -156,11 +163,7 @@ main {
   color: var(--muted);
   font-size: 1rem;
 }
-.logo-link {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}
+
 /* ── ONGLETS ── */
 .tabs {
   display: flex;
@@ -203,44 +206,162 @@ main {
   display: block;
 }
 
-/* ── CARDS CAPTEURS ── */
+/* ── CAPTEURS GRID ── */
 .capteurs-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.2rem;
+  margin-top: 1.5rem;
 }
 
 .capteur-card {
   background: white;
   border: 2px solid var(--border);
   border-radius: var(--radius);
-  padding: 2rem;
+  padding: 1.5rem;
   text-align: center;
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
+.capteur-card.card--chaud { border-color: #fb923c; box-shadow: 0 0 0 4px #fff3e0; }
+.capteur-card.card--froid { border-color: #60a5fa; box-shadow: 0 0 0 4px #e3f2fd; }
+.capteur-card.card--normal { border-color: #86efac; }
+
 .capteur-card h3 {
-  font-size: 1.1rem;
+  font-size: 1rem;
+  font-weight: 700;
   color: var(--text);
   margin-bottom: 1rem;
+}
+
+.capteur-titre {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+
+.capteur-valeur {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--rose);
+  line-height: 1;
+  margin: 0.5rem 0;
+}
+
+.capteur-phrase {
+  font-size: 0.9rem;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.capteur-stats {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+
+.capteur-heure {
+  font-size: 0.78rem;
+  color: var(--muted);
 }
 
 .temp-value {
   font-size: 2.5rem;
   font-weight: 700;
   color: var(--rose);
+  text-align: center;
 }
 
 .muted-text {
   color: var(--muted);
   font-size: 0.9rem;
+  text-align: center;
 }
 
-.logo-img {
-  height:63px;
-  width: auto;
-  object-fit: contain;
+/* ── FILTRES ── */
+.filters {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  margin-top: 1rem;
 }
 
+.filter-group {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.filter-btn {
+  flex: 1;
+  background: var(--rose-pale);
+  border: 1.5px solid var(--border);
+  border-radius: 999px;
+  padding: 0.35rem 0.8rem;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--muted);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.filter-btn:hover {
+  background: var(--rose-light);
+  color: var(--rose);
+}
+
+.filter-btn.active {
+  background: var(--rose-light);
+  color: var(--rose);
+  border-color: var(--rose);
+}
+/* ── SELECT FILTRES ── */
+.filter-select {
+  flex: 1;
+  background: white;
+  border: 1.5px solid var(--border);
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%239e8fa5' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.9rem center;
+  padding-right: 2rem;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: var(--rose);
+  color: var(--rose);
+}
+
+/* ── PLACEHOLDER DATA ── */
+.data-placeholder {
+  background: var(--rose-pale);
+  border: 1.5px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .header-inner { padding: 0.6rem 1rem; }
+  main { padding: 1.5rem 1rem; }
+  .capteur-valeur { font-size: 2.2rem; }
+}
 
 /* ── FOOTER ── */
 footer {
@@ -250,31 +371,4 @@ footer {
   color: var(--muted);
   border-top: 2px solid var(--border);
   background: white;
-}
-
-
-/* ── ONGLETS ── */
-.tabs { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
-.tab-btn { background: none; border: none; padding: 0.5rem 1.2rem; border-radius: 999px; font-family: inherit; font-size: 0.9rem; font-weight: 600; color: var(--muted); cursor: pointer; transition: background 0.2s, color 0.2s; }
-.tab-btn:hover, .tab-btn.active { background: var(--rose-light); color: var(--rose); }
-.tab-panel { display: none; }
-.tab-panel.active { display: block; }
-
-/* ── CARTES CAPTEURS ── */
-.capteurs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; }
-.capteur-card { background: white; border: 2px solid var(--border); border-radius: var(--radius); padding: 1.5rem; text-align: center; transition: border-color 0.3s, box-shadow 0.3s; }
-.capteur-card.card--chaud { border-color: #fb923c; box-shadow: 0 0 0 4px #fff3e0; }
-.capteur-card.card--froid { border-color: #60a5fa; box-shadow: 0 0 0 4px #e3f2fd; }
-.capteur-card.card--normal { border-color: #86efac; }
-.capteur-titre { font-size: 0.9rem; font-weight: 700; color: var(--muted); margin-bottom: 0.5rem; }
-.capteur-valeur { font-size: 3rem; font-weight: 700; color: var(--rose); line-height: 1; margin: 0.5rem 0; }
-.capteur-phrase { font-size: 0.9rem; color: var(--text); margin-bottom: 1rem; }
-.capteur-stats { display: flex; justify-content: center; gap: 1.5rem; font-size: 0.82rem; color: var(--muted); margin-bottom: 0.5rem; }
-.capteur-heure { font-size: 0.78rem; color: var(--muted); }
-
-/* ── RESPONSIVE ── */
-@media (max-width: 600px) {
-  .header-inner { padding: 0.6rem 1rem; }
-  main { padding: 1.5rem 1rem; }
-  .capteur-valeur { font-size: 2.2rem; }
 }
