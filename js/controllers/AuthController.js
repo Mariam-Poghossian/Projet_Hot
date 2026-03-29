@@ -1,37 +1,26 @@
-class AuthManager {
+class AuthController {
   constructor() {
+    this.model      = new AuthModel();
     this.btnToggle  = document.getElementById('btn-toggle');
     this.btnProfile = document.getElementById('btn-profile');
 
     this.btnToggle.addEventListener('click', () => this.toggle());
 
-    if (this.isLoggedIn()) {
+    if (this.model.isLoggedIn()) {
       this.setLoggedInUI(false);
     } else {
       this.setLoggedOutUI(false);
     }
   }
 
-  isLoggedIn() {
-    return localStorage.getItem('loggedIn') === 'true';
-  }
-
   toggle() {
-    if (this.isLoggedIn()) {
-      this.logout();
+    if (this.model.isLoggedIn()) {
+      this.model.logout();
+      this.setLoggedOutUI(true);
     } else {
-      this.login();
+      this.model.login();
+      this.setLoggedInUI(true);
     }
-  }
-
-  login() {
-    localStorage.setItem('loggedIn', 'true');
-    this.setLoggedInUI(true);
-  }
-
-  logout() {
-    localStorage.removeItem('loggedIn');
-    this.setLoggedOutUI(true);
   }
 
   setLoggedInUI(animate = true) {
@@ -54,6 +43,3 @@ class AuthManager {
     setTimeout(() => el.classList.remove('pop-in'), 300);
   }
 }
-
-// Le script est en bas du <body> : le DOM est déjà prêt, on instancie directement
-new AuthManager();

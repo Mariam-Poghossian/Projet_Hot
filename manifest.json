@@ -1,0 +1,10 @@
+{
+  "name": "HotHotHot",
+  "short_name": "HotHotHot",
+  "description": "Interface domotique - capteurs de température",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ff4500",
+  "lang": "fr"
+}
