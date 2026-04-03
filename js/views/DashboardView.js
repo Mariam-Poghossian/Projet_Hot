@@ -2,10 +2,10 @@ class DashboardView {
 
   _phrase(valeur) {
     if (valeur === null) return "En attente de données…";
-    if (valeur > 30) return "🔥 Température élevée — alerte chaleur !";
-    if (valeur > 20) return "✅ Température normale";
-    if (valeur > 10) return "🌿 Température fraîche";
-    return "🥶 Température très basse — alerte froid !";
+    if (valeur > 30) return "Température élevée — alerte chaleur !";
+    if (valeur > 20) return "Température normale";
+    if (valeur > 10) return "Température fraîche";
+    return "Température très basse — alerte froid !";
   }
 
   _couleur(valeur) {
