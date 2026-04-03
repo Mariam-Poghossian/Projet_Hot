@@ -6,10 +6,13 @@ Version TEST, avec VALEUUR DEFINI CAR API DOWN
 
 
 class WebSocketController {
-  constructor(onData) {
-    this.wsUrl   = "wss://ws.hothothot.dog:9502";
-    this.apiUrl  = "https://localhost:8080/api";
-    this.onData  = onData;
+  constructor(dashboardView, alertController) {
+    this.wsUrl          = "wss://ws.hothothot.dog:9502";
+    this.apiUrl = "https://localhost/api";
+    this.dashboardView  = dashboardView;
+    this.alertController = alertController;
+
+    this._temperatureModel = new TemperatureModel();
 
     this._socket        = null;
     this._pollingTimer  = null;
@@ -17,6 +20,22 @@ class WebSocketController {
     this._usingFallback = false;
 
     this._connectWS();
+  }
+
+  _handlePayload(payload) {
+    if (!payload.capteurs || !Array.isArray(payload.capteurs)) return;
+
+    this._temperatureModel.update(payload);
+    this.dashboardView.render(this._temperatureModel.getAll());
+
+    const ext = payload.capteurs.find(c => c.Nom === "exterieur");
+    const int = payload.capteurs.find(c => c.Nom === "interieur");
+    if (ext && int) {
+      this.alertController.analyse(
+        { nom: ext.Nom, valeur: parseFloat(ext.Valeur) },
+        { nom: int.Nom, valeur: parseFloat(int.Valeur) }
+      );
+    }
   }
 
   _connectWS() {
@@ -30,7 +49,7 @@ class WebSocketController {
 
     this._socket = new WebSocket(this.wsUrl);
 
-    this._socket.addEventListener("open", (event) => {
+    this._socket.addEventListener("open", () => {
       clearTimeout(timeout);
       console.log("[WS] Connecté");
       this._stopPolling();
@@ -40,7 +59,7 @@ class WebSocketController {
 
     this._socket.addEventListener("message", (event) => {
       try {
-        this.onData(JSON.parse(event.data));
+        this._handlePayload(JSON.parse(event.data));
       } catch (err) {
         console.error("[WS] Données invalides :", err);
       }
@@ -69,7 +88,7 @@ class WebSocketController {
     console.log("[API] Polling démarré");
     this._fetchOnce();
     this._pollingTimer = setInterval(() => this._fetchOnce(), 5000);
-    this._retryTimer = setInterval(() => {
+    this._retryTimer   = setInterval(() => {
       if (this._socket) this._socket.close();
       this._connectWS();
     }, 30000);
@@ -86,23 +105,16 @@ class WebSocketController {
     this._retryTimer = null;
   }
 
-  async _fetchOnce() {
-    try {
-      const response = await fetch(this.apiUrl);
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      const data = await response.json();
-      console.log("[API] Données reçues :", data);
-      this.onData(data);
-    } catch (err) {
-      // API indisponible -> données simulées
-      console.warn("[API] Indisponible, utilisation des données simulées");
-      this.onData(this._simuler());
-    }
-  }
-
-  // Simule des données au même format que l'API réelle
-  _simuler() {
-    return {
+async _fetchOnce() {
+  try {
+    const response = await fetch(this.apiUrl);
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const data = await response.json();
+    console.log("[API] Données reçues :", data);
+    this._handlePayload(data);
+  } catch (err) {
+    console.warn("[SIM] API indisponible, données simulées");
+    this._handlePayload({
       "HotHotHot": "Api v1.0",
       "capteurs": [
         {
@@ -118,8 +130,9 @@ class WebSocketController {
           "Timestamp": Math.floor(Date.now() / 1000)
         }
       ]
-    };
+    });
   }
+}
 
   disconnect() {
     this._stopPolling();
@@ -127,7 +140,6 @@ class WebSocketController {
     if (this._socket) this._socket.close();
   }
 }
-
 
 
 /* 

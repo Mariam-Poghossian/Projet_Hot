@@ -51,15 +51,32 @@
     </div>
 
     <div class="tab-content active" id="realtime">
-      <div class="capteurs-grid">
-        <div class="capteur-card">
-          <h3>Capteur Intérieur</h3>
-        </div>
-        <div class="capteur-card">
-          <h3>Capteur Extérieur</h3>
-        </div>
+  <div class="capteurs-grid">
+
+    <div id="capteur-interieur" class="capteur-card">
+      <div class="capteur-titre">🏠 Intérieur</div>
+      <div class="capteur-valeur">-- °C</div>
+      <div class="capteur-phrase">En attente de données…</div>
+      <div class="capteur-stats">
+        <span class="capteur-min">Min : --</span>
+        <span class="capteur-max">Max : --</span>
       </div>
+      <div class="capteur-heure">--:--:--</div>
     </div>
+
+    <div id="capteur-exterieur" class="capteur-card">
+      <div class="capteur-titre">🌳 Extérieur</div>
+      <div class="capteur-valeur">-- °C</div>
+      <div class="capteur-phrase">En attente de données…</div>
+      <div class="capteur-stats">
+        <span class="capteur-min">Min : --</span>
+        <span class="capteur-max">Max : --</span>
+      </div>
+      <div class="capteur-heure">--:--:--</div>
+    </div>
+
+  </div>
+</div>
 
     <div class="tab-content" id="historique">
       <div class="capteurs-grid">
@@ -98,6 +115,7 @@
     BUT &nbsp;·&nbsp; Groupe HotHotHot &nbsp;·&nbsp; 2026 🌸
   </footer>
 
+  <script src="js/models/TemperatureModel.js" defer></script>
   <script src="js/models/AuthModel.js" defer></script>
   <script src="js/models/HistoryModel.js" defer></script>
   <script src="js/models/AlertModel.js" defer></script>
