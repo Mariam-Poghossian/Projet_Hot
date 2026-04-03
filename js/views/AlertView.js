@@ -61,12 +61,24 @@ class AlertView {
         <span class="av-panel-title">Alertes et Synthèse</span>
         <button class="av-close" aria-label="Fermer le panneau">✕</button>
       </div>
+
       <div class="av-section">
         <div class="av-section-label">Synthèse du jour</div>
         <div class="av-synth" id="av-synth">
           <p class="av-empty">En attente de données…</p>
         </div>
       </div>
+
+      <div class="av-section av-section--notif" id="av-notif-section">
+        <div class="av-section-label">Notifications système</div>
+        <div class="av-notif-row">
+          <span class="av-notif-status" id="av-notif-status">Statut inconnu</span>
+          <button class="av-btn-notif" id="av-btn-notif" style="display:none">
+            Activer
+          </button>
+        </div>
+      </div>
+
       <div class="av-section av-section--grow">
         <div class="av-section-label">
           Alertes reçues
@@ -101,13 +113,51 @@ class AlertView {
         if (e.key === "Enter" || e.key === " ") { e.preventDefault(); this._togglePanel(); }
       });
     }
+
     this._panel.querySelector(".av-close").addEventListener("click", () => this._closePanel());
     this._overlay.addEventListener("click", () => this._closePanel());
     document.getElementById("av-btn-clear").addEventListener("click", () => this._clearAll());
+
+    const btnNotif = document.getElementById("av-btn-notif");
+    if (btnNotif) {
+      btnNotif.addEventListener("click", async () => {
+        const perm = await Notification.requestPermission();
+        this._updateNotifStatus(perm);
+      });
+    }
+
+    document.addEventListener("hothothot:open-alerts", () => this._openPanel());
+
     document.addEventListener("keydown", e => {
       if (e.key === "Escape" && this._panelOpen) this._closePanel();
     });
+
+    this._updateNotifStatus(
+      "Notification" in window ? Notification.permission : "unsupported"
+    );
   }
+
+  _updateNotifStatus(permission) {
+    const statusEl = document.getElementById("av-notif-status");
+    const btnEl    = document.getElementById("av-btn-notif");
+    if (!statusEl) return;
+
+    const labels = {
+      granted:     { text: "✓ Activées",          cls: "av-notif--ok"  },
+      denied:      { text: "✗ Bloquées par le navigateur", cls: "av-notif--ko" },
+      default:     { text: "Non activées",         cls: "av-notif--off" },
+      unsupported: { text: "Non supportées",       cls: "av-notif--off" }
+    };
+
+    const { text, cls } = labels[permission] || labels.default;
+    statusEl.textContent = text;
+    statusEl.className   = `av-notif-status ${cls}`;
+
+    if (btnEl) {
+      btnEl.style.display = permission === "default" ? "" : "none";
+    }
+  }
+
 
   afficher(alertes) {
     if (!alertes || alertes.length === 0) return;
@@ -184,8 +234,6 @@ class AlertView {
     this._updateBadge();
   }
 
-  // ── Panneau ──────────────────────────────
-
   _togglePanel() { this._panelOpen ? this._closePanel() : this._openPanel(); }
 
   _openPanel() {
@@ -203,7 +251,6 @@ class AlertView {
     this._panel.setAttribute("aria-hidden", "true");
     this._bellWrapper?.focus();
   }
-
 
   _esc(str) {
     const d = document.createElement("div");

@@ -1,3 +1,8 @@
+/* =============================================================
+   alert-view.css  —  Cloche, panneau, toast, notifications
+   <link rel="stylesheet" href="css/alert-view.css">
+   ============================================================= */
+
 /* ── Cloche ──────────────────────────────────────────────── */
 
 .av-bell {
@@ -12,17 +17,9 @@
   transition: background 0.18s;
   color: inherit;
 }
+.av-bell:hover { background: rgba(0, 0, 0, 0.07); }
+.av-bell:focus-visible { outline: 2px solid #e00055; outline-offset: 2px; }
 
-.av-bell:hover {
-  background: rgba(0, 0, 0, 0.07);
-}
-
-.av-bell:focus-visible {
-  outline: 2px solid #e00055;
-  outline-offset: 2px;
-}
-
-/* Badge rouge sur la cloche */
 .av-badge {
   position: absolute;
   top: 2px;
@@ -40,7 +37,7 @@
   pointer-events: none;
 }
 
-/* ── Overlay (fond sombre derrière le panneau) ───────────── */
+/* ── Overlay ─────────────────────────────────────────────── */
 
 .av-overlay {
   display: none;
@@ -49,10 +46,7 @@
   background: rgba(0, 0, 0, 0.32);
   z-index: 998;
 }
-
-.av-overlay--on {
-  display: block;
-}
+.av-overlay--on { display: block; }
 
 /* ── Panneau latéral ─────────────────────────────────────── */
 
@@ -71,12 +65,8 @@
   flex-direction: column;
   overflow-y: auto;
 }
+.av-panel--open { transform: translateX(0); }
 
-.av-panel--open {
-  transform: translateX(0);
-}
-
-/* En-tête du panneau */
 .av-panel-head {
   display: flex;
   align-items: center;
@@ -88,11 +78,7 @@
   background: #fff;
   z-index: 1;
 }
-
-.av-panel-title {
-  font-size: 1rem;
-  font-weight: 700;
-}
+.av-panel-title { font-size: 1rem; font-weight: 700; }
 
 .av-close {
   background: none;
@@ -104,19 +90,14 @@
   border-radius: 5px;
   transition: background 0.15s;
 }
+.av-close:hover { background: #f0f0f0; color: #333; }
 
-.av-close:hover {
-  background: #f0f0f0;
-  color: #333;
-}
-
-/* ── Sections du panneau ─────────────────────────────────── */
+/* ── Sections ────────────────────────────────────────────── */
 
 .av-section {
   padding: 1rem 1.2rem;
   border-bottom: 1px solid #eee;
 }
-
 .av-section--grow {
   flex: 1;
   border-bottom: none;
@@ -136,7 +117,6 @@
   margin-bottom: 0.7rem;
 }
 
-/* Bouton "Tout effacer" */
 .av-btn-clear {
   background: none;
   border: 1px solid #ddd;
@@ -150,11 +130,39 @@
   font-weight: 400;
   transition: background 0.15s;
 }
+.av-btn-clear:hover { background: #f5f5f5; color: #666; }
 
-.av-btn-clear:hover {
-  background: #f5f5f5;
-  color: #666;
+/* ── Section notifications système ──────────────────────── */
+
+.av-section--notif { padding: 0.8rem 1.2rem; }
+
+.av-notif-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
+
+.av-notif-status {
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+.av-notif--ok  { color: #2a9d5c; }
+.av-notif--ko  { color: #d9534f; }
+.av-notif--off { color: #999; }
+
+.av-btn-notif {
+  background: #1a1a1a;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+.av-btn-notif:hover { background: #333; }
 
 /* ── Synthèse journalière ────────────────────────────────── */
 
@@ -163,19 +171,9 @@
   grid-template-columns: 1fr 1fr;
   gap: 8px;
 }
-
-.av-synth-card {
-  border-radius: 9px;
-  padding: 0.75rem 0.9rem;
-}
-
-.av-synth-ext {
-  background: #e8f4ff;
-}
-
-.av-synth-int {
-  background: #fff4e0;
-}
+.av-synth-card { border-radius: 9px; padding: 0.75rem 0.9rem; }
+.av-synth-ext  { background: #e8f4ff; }
+.av-synth-int  { background: #fff4e0; }
 
 .av-synth-lbl {
   display: block;
@@ -186,34 +184,15 @@
   color: #777;
   margin-bottom: 6px;
 }
-
-.av-synth-vals {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-.av-s-min {
-  color: #2979d9;
-  font-size: 0.93rem;
-  font-weight: 600;
-}
-
-.av-s-max {
-  color: #d9534f;
-  font-size: 0.93rem;
-  font-weight: 600;
-}
+.av-synth-vals { display: flex; gap: 10px; align-items: center; }
+.av-s-min { color: #2979d9; font-size: 0.93rem; font-weight: 600; }
+.av-s-max { color: #d9534f; font-size: 0.93rem; font-weight: 600; }
 
 /* ── État vide ───────────────────────────────────────────── */
 
-.av-empty {
-  color: #bbb;
-  font-size: 0.85rem;
-  margin: 0;
-}
+.av-empty { color: #bbb; font-size: 0.85rem; margin: 0; }
 
-/* ── Liste des alertes ───────────────────────────────────── */
+/* ── Liste alertes ───────────────────────────────────────── */
 
 .av-list {
   list-style: none;
@@ -224,7 +203,6 @@
   gap: 6px;
   flex: 1;
 }
-
 .av-item {
   display: flex;
   align-items: flex-start;
@@ -235,29 +213,14 @@
   font-size: 0.84rem;
   line-height: 1.4;
 }
+.av-item--danger  { background: #fff3f3; border-left-color: #d9534f; }
+.av-item--warning { background: #fffbf0; border-left-color: #e0a820; }
 
-.av-item--danger {
-  background: #fff3f3;
-  border-left-color: #d9534f;
-}
-
-.av-item--warning {
-  background: #fffbf0;
-  border-left-color: #e0a820;
-}
-
-.av-item-ico {
-  flex-shrink: 0;
-  font-size: 13px;
-  margin-top: 1px;
-}
-
+.av-item-ico { flex-shrink: 0; font-size: 13px; margin-top: 1px; }
 .av-item--danger  .av-item-ico { color: #d9534f; }
 .av-item--warning .av-item-ico { color: #c08c00; }
 
-.av-item-msg {
-  flex: 1;
-}
+.av-item-msg { flex: 1; }
 
 .av-item-t {
   flex-shrink: 0;
@@ -267,7 +230,7 @@
   padding-left: 4px;
 }
 
-/* ── Toast de notification ───────────────────────────────── */
+/* ── Toast ───────────────────────────────────────────────── */
 
 .av-toast {
   position: fixed;
@@ -289,7 +252,6 @@
   transition: opacity 0.28s, transform 0.28s;
   z-index: 2000;
 }
-
 .av-toast--on {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
