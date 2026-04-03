@@ -1,0 +1,129 @@
+/* ── HISTORIQUE ── */
+#historique .capteurs-grid {
+  margin-top: 1.5rem;
+}
+
+/* Cartes stats min/max */
+.history-stats {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.history-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.history-stat .stat-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.history-stat .stat-value {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.history-stat.stat-min .stat-value { color: #9ec3f0; }
+.history-stat.stat-max .stat-value { color: #b11313; }
+
+/* Carte graphique */
+.history-chart-card {
+  background: white;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  margin-top: 1.2rem;
+}
+
+.history-chart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.history-chart-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.history-legend {
+  display: flex;
+  gap: 14px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.history-legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.history-chart-wrapper {
+  position: relative;
+  width: 100%;
+  height: 260px;
+}
+
+
+
+/* Tableau */
+.history-table-card {
+  background: white;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  margin-top: 1.2rem;
+  overflow-x: auto;
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.history-table th {
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1.5px solid var(--border);
+  white-space: nowrap;
+}
+
+.history-table td {
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1px solid var(--rose-pale);
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.history-table tr:last-child td { border-bottom: none; }
+.history-table tr:hover td      { background: var(--rose-pale); }
+
+/* Responsive */
+@media (max-width: 600px) {
+  .history-stat .stat-value { font-size: 1.1rem; }
+  .history-chart-wrapper    { height: 200px; }
+}

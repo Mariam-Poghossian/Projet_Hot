@@ -1,9 +1,11 @@
 class WebSocketController {
-  constructor(dashboardView, alertController) {
+  constructor(dashboardView, alertController, historyModel, historyView) {
     this.wsUrl           = "wss://ws.hothothot.dog:9502";
     this.apiUrl          = "https://api.hothothot.dog/";
     this.dashboardView   = dashboardView;
     this.alertController = alertController;
+    this.historyModel    = historyModel;
+    this.historyView     = historyView;
 
     this._temperatureModel = new TemperatureModel();
     this._socket           = null;
@@ -11,35 +13,39 @@ class WebSocketController {
     this._retryTimer       = null;
     this._watchdog         = null;
     this._usingFallback    = false;
+    this._fetching         = false;
 
     this._connectWS();
   }
 
-_handlePayload(payload) {
-  if (!payload.capteurs || !Array.isArray(payload.capteurs)) return;
+  _handlePayload(payload) {
+    if (!payload.capteurs || !Array.isArray(payload.capteurs)) return;
 
-  this._temperatureModel.update(payload);
-  this.dashboardView.render(this._temperatureModel.getAll());
+    this._temperatureModel.update(payload);
+    this.dashboardView.render(this._temperatureModel.getAll());
 
-  const ext = payload.capteurs.find(c => c.Nom === "exterieur");
-  const int = payload.capteurs.find(c => c.Nom === "interieur");
-  if (ext && int) {
-    try {
-      this.alertController.analyse(
-        { nom: ext.Nom, valeur: parseFloat(ext.Valeur) },
-        { nom: int.Nom, valeur: parseFloat(int.Valeur) }
-      );
-    } catch (err) {
+    const ext = payload.capteurs.find(c => c.Nom === "exterieur");
+    const int = payload.capteurs.find(c => c.Nom === "interieur");
+
+    if (ext && int) {
+      this.historyModel.update(parseFloat(ext.Valeur), parseFloat(int.Valeur));
+      this.historyView.render();
+
+      try {
+        this.alertController.analyse(
+          { nom: ext.Nom, valeur: parseFloat(ext.Valeur) },
+          { nom: int.Nom, valeur: parseFloat(int.Valeur) }
+        );
+      } catch (err) {}
     }
   }
-}
 
   _connectWS() {
     console.log("[WS] Tentative →", this.wsUrl);
 
     const timeout = setTimeout(() => {
       console.warn("[WS] Timeout — bascule API");
-      this._usingFallback = true; 
+      this._usingFallback = true;
       this._socket.close();
       this._startPolling();
     }, 5000);
@@ -58,7 +64,7 @@ _handlePayload(payload) {
         this._usingFallback = true;
         this._socket.close();
         this._startPolling();
-      }, 10000); //10 secondes d'attente avant de basculer
+      }, 10000);
     });
 
     this._socket.addEventListener("message", (event) => {
@@ -113,7 +119,7 @@ _handlePayload(payload) {
   }
 
   async _fetchOnce() {
-    if (this._fetching) return; 
+    if (this._fetching) return;
     this._fetching = true;
     try {
       const response = await fetch(this.apiUrl);
@@ -131,7 +137,7 @@ _handlePayload(payload) {
         ]
       });
     } finally {
-      this._fetching = false; 
+      this._fetching = false;
     }
   }
 
