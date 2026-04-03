@@ -1,0 +1,296 @@
+/* ── Cloche ──────────────────────────────────────────────── */
+
+.av-bell {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 7px;
+  border-radius: 8px;
+  margin-right: 6px;
+  transition: background 0.18s;
+  color: inherit;
+}
+
+.av-bell:hover {
+  background: rgba(0, 0, 0, 0.07);
+}
+
+.av-bell:focus-visible {
+  outline: 2px solid #e00055;
+  outline-offset: 2px;
+}
+
+/* Badge rouge sur la cloche */
+.av-badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 3px;
+  border-radius: 999px;
+  background: #d9534f;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 16px;
+  text-align: center;
+  pointer-events: none;
+}
+
+/* ── Overlay (fond sombre derrière le panneau) ───────────── */
+
+.av-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.32);
+  z-index: 998;
+}
+
+.av-overlay--on {
+  display: block;
+}
+
+/* ── Panneau latéral ─────────────────────────────────────── */
+
+.av-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(370px, 93vw);
+  height: 100dvh;
+  background: #fff;
+  box-shadow: -3px 0 20px rgba(0, 0, 0, 0.13);
+  z-index: 999;
+  transform: translateX(100%);
+  transition: transform 0.27s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.av-panel--open {
+  transform: translateX(0);
+}
+
+/* En-tête du panneau */
+.av-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 1;
+}
+
+.av-panel-title {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.av-close {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #999;
+  padding: 4px 8px;
+  border-radius: 5px;
+  transition: background 0.15s;
+}
+
+.av-close:hover {
+  background: #f0f0f0;
+  color: #333;
+}
+
+/* ── Sections du panneau ─────────────────────────────────── */
+
+.av-section {
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid #eee;
+}
+
+.av-section--grow {
+  flex: 1;
+  border-bottom: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.av-section-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #999;
+  margin-bottom: 0.7rem;
+}
+
+/* Bouton "Tout effacer" */
+.av-btn-clear {
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 3px 9px;
+  font-size: 0.7rem;
+  color: #aaa;
+  cursor: pointer;
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
+  transition: background 0.15s;
+}
+
+.av-btn-clear:hover {
+  background: #f5f5f5;
+  color: #666;
+}
+
+/* ── Synthèse journalière ────────────────────────────────── */
+
+.av-synth {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.av-synth-card {
+  border-radius: 9px;
+  padding: 0.75rem 0.9rem;
+}
+
+.av-synth-ext {
+  background: #e8f4ff;
+}
+
+.av-synth-int {
+  background: #fff4e0;
+}
+
+.av-synth-lbl {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #777;
+  margin-bottom: 6px;
+}
+
+.av-synth-vals {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.av-s-min {
+  color: #2979d9;
+  font-size: 0.93rem;
+  font-weight: 600;
+}
+
+.av-s-max {
+  color: #d9534f;
+  font-size: 0.93rem;
+  font-weight: 600;
+}
+
+/* ── État vide ───────────────────────────────────────────── */
+
+.av-empty {
+  color: #bbb;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* ── Liste des alertes ───────────────────────────────────── */
+
+.av-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.av-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 9px 11px;
+  border-radius: 8px;
+  border-left: 3px solid transparent;
+  font-size: 0.84rem;
+  line-height: 1.4;
+}
+
+.av-item--danger {
+  background: #fff3f3;
+  border-left-color: #d9534f;
+}
+
+.av-item--warning {
+  background: #fffbf0;
+  border-left-color: #e0a820;
+}
+
+.av-item-ico {
+  flex-shrink: 0;
+  font-size: 13px;
+  margin-top: 1px;
+}
+
+.av-item--danger  .av-item-ico { color: #d9534f; }
+.av-item--warning .av-item-ico { color: #c08c00; }
+
+.av-item-msg {
+  flex: 1;
+}
+
+.av-item-t {
+  flex-shrink: 0;
+  font-size: 0.68rem;
+  color: #bbb;
+  white-space: nowrap;
+  padding-left: 4px;
+}
+
+/* ── Toast de notification ───────────────────────────────── */
+
+.av-toast {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(14px);
+  background: #1a1a1a;
+  color: #fff;
+  padding: 9px 20px;
+  border-radius: 99px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  max-width: min(500px, 88vw);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.28s, transform 0.28s;
+  z-index: 2000;
+}
+
+.av-toast--on {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
