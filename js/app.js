@@ -16,12 +16,13 @@ class App {
   }
 
   _initMVC() {
-    const dashboardView      = new DashboardView();
-    const alertView          = new AlertView();
-    const notificationView   = new NotificationView();   // ← nouveau
-    const historyModel       = new HistoryModel();
-    const alertController    = new AlertController(alertView, historyModel, notificationView);
-    const wsController       = new WebSocketController(dashboardView, alertController);
+    const dashboardView    = new DashboardView();
+    const alertView        = new AlertView();
+    const notificationView = new NotificationView();
+    const historyModel     = new HistoryModel();
+    const historyView      = new HistoryView(historyModel);
+    const alertController  = new AlertController(alertView, historyModel, notificationView);
+    const wsController     = new WebSocketController(dashboardView, alertController, historyModel, historyView);
     new AuthController();
   }
 }
