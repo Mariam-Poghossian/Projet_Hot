@@ -1,10 +1,12 @@
 {
   "name": "HotHotHot",
   "short_name": "HotHotHot",
-  "description": "Interface domotique - capteurs de température",
+  "description": "Interface domotique — capteurs de température en temps réel",
   "start_url": "/index.html",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#ff4500",
-  "lang": "fr"
+  "background_color": "#fdf2f8",
+  "theme_color": "#f472b6",
+  "icons": [
+    { "src": "img/Logo.png", "sizes": "any", "type": "image/png" }
+  ]
 }
