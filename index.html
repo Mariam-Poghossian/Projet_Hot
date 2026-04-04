@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/alert-view.css">
   <link rel="stylesheet" href="css/history-view.css">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#f472b6">
   <script src="assets/lottie-player.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js" defer></script>
 </head>
@@ -29,6 +31,9 @@
           <span>🌸</span> Profil
         </a>
       </div>
+      <button id="btn-install" class="btn-auth btn-login hidden" aria-label="Installer l'application">
+        Installer
+      </button>
     </div>
   </header>
 
@@ -176,6 +181,7 @@
   <script src="js/controllers/AuthController.js" defer></script>
   <script src="js/controllers/AlertController.js" defer></script>
   <script src="js/controllers/WebSocketController.js" defer></script>
+  <script src="js/controllers/PWAController.js" defer></script>
   <script src="js/app.js" defer></script>
 
 
