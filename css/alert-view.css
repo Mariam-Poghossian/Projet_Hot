@@ -256,3 +256,18 @@
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }
+
+@media (max-width: 500px) {
+  .av-panel {
+    width: 100%;
+  }
+  .av-toast {
+    width: 90%;
+    font-size: 0.8rem;
+    white-space: normal;
+    text-align: center;
+  }
+  .av-synth {
+    grid-template-columns: 1fr;
+  }
+}

@@ -166,3 +166,20 @@
 #btn-logout:hover {
   background: var(--rose-pale);
 }
+
+@media (max-width: 600px) {
+  .profile-avatar-wrap {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .profile-body {
+    text-align: center;
+    padding-top: 60px;
+  }
+  .profile-grid {
+    grid-template-columns: 1fr; /* Une seule colonne pour les champs */
+  }
+  .field-value {
+    text-align: left;
+  }
+}

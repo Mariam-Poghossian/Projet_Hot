@@ -377,3 +377,16 @@ footer {
   border-top: 2px solid var(--border);
   background: white;
 }
+
+@media (max-width: 768px) {
+  .cards, .diagrams {
+    grid-template-columns: 1fr;
+  }
+  table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+}
