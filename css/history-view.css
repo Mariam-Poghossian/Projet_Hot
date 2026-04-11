@@ -122,8 +122,24 @@
 .history-table tr:last-child td { border-bottom: none; }
 .history-table tr:hover td      { background: var(--rose-pale); }
 
-/* Responsive */
+/* ── RESPONSIVE HISTORIQUE ── */
 @media (max-width: 600px) {
-  .history-stat .stat-value { font-size: 1.1rem; }
-  .history-chart-wrapper    { height: 200px; }
+  .history-stats {
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: space-around;
+  }
+
+  .history-stat .stat-value {
+    font-size: 1.1rem;
+  }
+
+  .history-chart-wrapper {
+    height: 200px; /* Réduit la hauteur du graphique sur mobile */
+  }
+
+  .history-chart-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

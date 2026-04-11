@@ -377,3 +377,22 @@ footer {
   border-top: 2px solid var(--border);
   background: white;
 }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .cards, .diagrams {
+    grid-template-columns: 1fr; 
+  }
+
+  table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .diff {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
