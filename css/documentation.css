@@ -378,21 +378,15 @@ footer {
   background: white;
 }
 
-/* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   .cards, .diagrams {
-    grid-template-columns: 1fr; 
+    grid-template-columns: 1fr;
   }
-
   table {
     display: block;
     width: 100%;
     overflow-x: auto;
+    white-space: nowrap;
     -webkit-overflow-scrolling: touch;
-  }
-
-  .diff {
-    flex-direction: column;
-    gap: 0.5rem;
   }
 }

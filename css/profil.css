@@ -167,26 +167,18 @@
   background: var(--rose-pale);
 }
 
-/* ── RESPONSIVE PROFIL ── */
 @media (max-width: 600px) {
-  .profile-wrapper {
-    margin: 20px auto;
-  }
-
   .profile-avatar-wrap {
     left: 50%;
-    transform: translateX(-50%); /* Centre l'avatar sur mobile */
+    transform: translateX(-50%);
   }
-
   .profile-body {
-    padding-top: 60px;
     text-align: center;
+    padding-top: 60px;
   }
-
   .profile-grid {
-    grid-template-columns: 1fr; /* Les champs s'empilent */
+    grid-template-columns: 1fr; /* Une seule colonne pour les champs */
   }
-  
   .field-value {
     text-align: left;
   }

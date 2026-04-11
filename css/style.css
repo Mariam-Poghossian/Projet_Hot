@@ -177,12 +177,22 @@ main {
   gap: 0.4rem;
 }
 
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: 1.2rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+  border-top: 2px solid var(--border);
+  background: white;
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   .header-inner {
     flex-direction: column;
     padding: 1rem;
-    gap: 1rem;
+    gap: 1.2rem;
     text-align: center;
   }
 
@@ -204,6 +214,11 @@ main {
 
   .hero h1 {
     font-size: 1.8rem;
+  }
+
+  .tabs {
+    justify-content: center;
+    overflow-x: auto;
   }
 
   .filters {
