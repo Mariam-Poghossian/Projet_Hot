@@ -12,183 +12,162 @@
 </head>
 <body>
 
-  <header>
-    <div class="header-inner">
-      <nav>
-        <a href="index.html">Accueil</a>
-        <a href="#equipe">Équipe</a>
-        <a href="#outils">Outils</a>
-        <a href="#planning">Planning</a>
-        <a href="#difficultes">Difficultés</a>
-        <a href="#diagrammes">Diagrammes</a>
-        <a href="#retro">Rétrospective</a>
-      </nav>
+<header>
+  <div class="header-inner">
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="#equipe">Équipe</a>
+      <a href="#outils">Outils</a>
+      <a href="#planning">Planning</a>
+      <a href="#difficultes">Difficultés</a>
+      <a href="#diagrammes">Diagrammes</a>
+      <a href="#retro">Rétrospective</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <h1 style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+      Projet HotHotHot
+      <lottie-player
+              src="assets/Fire.json"
+              background="transparent"
+              speed="1"
+              style="width: 80px; height: 80px; vertical-align: middle; margin-bottom: 40px;"
+              loop
+              autoplay
+      ></lottie-player>
+    </h1>
+    <p class="hero-desc">Interface domotique - capteurs de température en temps réel.</p>
+  </section>
+
+  <section id="equipe">
+    <h2>👩‍💻 Notre équipe</h2>
+    <div class="cards">
+
+      <div class="card">
+        <div class="avatar">SA</div>
+        <h3>Sinda Amara</h3>
+        <p class="role">Développeuse</p>
+        <p class="desc">Page d'accueil - architecture MCV, onglets temps réel et historique.</p>
+      </div>
+
+      <div class="card">
+        <div class="avatar">AR</div>
+        <h3>Ambre Roffidal</h3>
+        <p class="role">Développeuse</p>
+        <p class="desc">Intégration responsive, système d'alertes et notifications push.</p>
+      </div>
+
+      <div class="card">
+        <div class="avatar">MP</div>
+        <h3>Mariam Poghossian</h3>
+        <p class="role">Développeuse</p>
+        <p class="desc">Connexion WebSocket, fallback API, données fictives si indisponible.</p>
+      </div>
+
     </div>
-  </header>
+  </section>
 
-  <main>
+  <section id="outils">
+    <h2>🛠️ Outils &amp; organisation</h2>
+    <div class="pills">
+      <span class="pill">GitHub</span>
+      <span class="pill">VSCode</span>
+      <span class="pill">HTML / CSS / JS</span>
+      <span class="pill">PWA &amp; Service Worker</span>
+      <span class="pill">WebSocket</span>
+      <span class="pill">Python (serveur local)</span>
+      <span class="pill">mkcert (HTTPS local)</span>
+    </div>
+    <div class="repo">
+      <span>📁 Dépôt Git :</span>
+      <a href="https://github.com/Mariam-Poghossian/Projet_Hot" target="_blank">github.com/Mariam-Poghossian/Projet_Hot</a>
+    </div>
+  </section>
 
-    <section class="hero">
-      <h1 style="display: flex; align-items: center; justify-content: center; gap: 8px;">
-        Projet HotHotHot
-        <lottie-player
-          src="assets/Fire.json"
-          background="transparent"
-          speed="1"
-          style="width: 80px; height: 80px; vertical-align: middle; margin-bottom: 40px;"
-          loop
-          autoplay
-        ></lottie-player>
-      </h1>
-      <p class="hero-desc">Interface domotique PWA — affichage et gestion de capteurs de température en temps réel.</p>
-    </section>
+  <section id="planning">
+    <h2>📅 Planning de réalisation</h2>
+    <table>
+      <thead>
+      <tr>
+        <th>Période</th>
+        <th>Tâches réalisées</th>
+        <th>Responsable(s)</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>Semaine 1</td>
+        <td>Page documentation, logo, structure du projet</td>
+        <td>Toute l'équipe</td>
+      </tr>
+      <tr>
+        <td>Semaine 2</td>
+        <td>Page d'accueil, bouton Se connecter / Profil</td>
+        <td>Toute l'équipe</td>
+      </tr>
+      <tr>
+        <td>Semaine 3</td>
+        <td>Finalisation page d'accueil, modèles de données, tests avec données fictives</td>
+        <td>Toute l'équipe</td>
+      </tr>
+      <tr>
+        <td>Semaine 4</td>
+        <td>Connexion WebSocket / API, onglet historique, graphe des températures</td>
+        <td>Toute l'équipe</td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
 
-    <section id="equipe">
-      <h2>👩‍💻 Notre équipe</h2>
-      <div class="cards">
+  <section id="difficultes">
+    <h2>Difficultés rencontrées</h2>
 
-        <div class="card">
-          <div class="avatar">SA</div>
-          <h3>Sinda Amara</h3>
-          <p class="role">Développeuse</p>
-          <p class="desc">À compléter — rôle spécifique dans le projet.</p>
-        </div>
-
-        <div class="card">
-          <div class="avatar">AR</div>
-          <h3>Ambre Roffidal</h3>
-          <p class="role">Développeuse</p>
-          <p class="desc">À compléter — rôle spécifique dans le projet.</p>
-        </div>
-
-        <div class="card">
-          <div class="avatar">MP</div>
-          <h3>Mariam Poghossian</h3>
-          <p class="role">Développeuse</p>
-          <p class="desc">À compléter — rôle spécifique dans le projet.</p>
-        </div>
-
+    <div class="diff">
+      <div class="diff-num">01</div>
+      <div>
+        <h3>WebSocket inaccessible en début de projet</h3>
+        <p>Le serveur WebSocket est resté inaccessible tout au long du projet. <br> L'application bascule automatiquement sur l'API en cas d'indisponibilité du WebSocket.</p>
       </div>
-    </section>
+    </div>
 
-    <section id="outils">
-      <h2>🛠️ Outils &amp; organisation</h2>
-      <div class="pills">
-        <span class="pill">GitHub</span>
-        <span class="pill">VSCode</span>
-        <span class="pill">HTML / CSS / JS</span>
-        <span class="pill">PWA &amp; Service Worker</span>
-        <span class="pill">WebSocket</span>
-        <span class="pill">Python (serveur local)</span>
-        <span class="pill">mkcert (HTTPS local)</span>
+    <div class="diff">
+      <div class="diff-num">02</div>
+      <div>
+        <h3>Affichage des alertes en local</h3>
+        <p>Les alertes ne s'affichaient pas sur le serveur local, ce qui nous a pris du temps à résoudre.</p>
       </div>
-      <div class="repo">
-        <span>📁 Dépôt Git :</span>
-        <a href="https://github.com/Mariam-Poghossian/Projet_Hot" target="_blank">github.com/Mariam-Poghossian/Projet_Hot</a>
+    </div>
+  </section>
+
+  <section id="diagrammes">
+    <h2>📊 Diagrammes</h2>
+
+    <div class="diagram-scroll">
+      <div class="diagram-scroll-header">
+        <h3>Diagramme de cas d'utilisation</h3>
       </div>
-    </section>
-
-    <section id="planning">
-      <h2>📅 Planning de réalisation</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Période</th>
-            <th>Tâches prévues</th>
-            <th>Responsable(s)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Semaine 1</td>
-            <td class="placeholder">À compléter…</td>
-            <td class="placeholder">—</td>
-          </tr>
-          <tr>
-            <td>Semaine 2</td>
-            <td class="placeholder">À compléter…</td>
-            <td class="placeholder">—</td>
-          </tr>
-          <tr>
-            <td>Semaine 3</td>
-            <td class="placeholder">À compléter…</td>
-            <td class="placeholder">—</td>
-          </tr>
-          <tr>
-            <td>Semaine 4</td>
-            <td class="placeholder">À compléter…</td>
-            <td class="placeholder">—</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section id="difficultes">
-      <h2>💡 Difficultés rencontrées</h2>
-
-      <div class="diff">
-        <div class="diff-num">01</div>
-        <div>
-          <h3 class="placeholder">Titre de la difficulté…</h3>
-          <p class="placeholder">Décrivez la difficulté et la solution apportée.</p>
-        </div>
+      <div class="diagram-scroll-inner">
+        <img src="img/diagrammes.png" alt="Diagramme de cas d'utilisation" style="max-width: 1000px; width: 100%; height: auto; display: block; margin: 0 auto;">
       </div>
+    </div>
+  </section>
 
-      <div class="diff">
-        <div class="diff-num">02</div>
-        <div>
-          <h3 class="placeholder">Titre de la difficulté…</h3>
-          <p class="placeholder">Décrivez la difficulté et la solution apportée.</p>
-        </div>
-      </div>
-    </section>
+  <section id="retro">
+    <h2>Si c'était à refaire…</h2>
+    <div class="retro">
+      <p>Nous aurions utilisé des données fictives dès le départ pour ne pas bloquer le développement. <br> Nous aurions aussi mieux organisé la répartition des tâches dès le début pour éviter les doublons et gagner du temps.</p>
+    </div>
+  </section>
 
-    <section id="diagrammes">
-      <h2>📊 Diagrammes</h2>
-      <div class="diagrams">
+</main>
 
-        <div class="diagram-box">
-          <div class="diagram-icon">🗂️</div>
-          <p class="diagram-label">Architecture MVC</p>
-          <p class="placeholder">Image à insérer</p>
-        </div>
-
-        <div class="diagram-box">
-          <div class="diagram-icon">⚙️</div>
-          <p class="diagram-label">Flux Service Worker</p>
-          <p class="placeholder">Image à insérer</p>
-        </div>
-
-        <div class="diagram-box">
-          <div class="diagram-icon">🔌</div>
-          <p class="diagram-label">Flux WebSocket</p>
-          <p class="placeholder">Image à insérer</p>
-        </div>
-
-        </div>
-
-        <div class="diagram-scroll">
-          <div class="diagram-scroll-header">
-            <h3>Diagramme de cas d'utilisation</h3>
-          </div>
-          <div class="diagram-scroll-inner">
-            <img src="img/diagrammes.png" alt="Diagramme de cas d'utilisation">
-          </div>
-        </div>
-      </section>
-
-    <section id="retro">
-      <h2>🔁 Si c'était à refaire…</h2>
-      <div class="retro">
-        <p class="placeholder">À compléter en fin de projet — que changeriez-vous à vos pratiques ?</p>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    DUT — M4103C &nbsp;·&nbsp; Groupe HotHotHot &nbsp;·&nbsp; 2024 🌸
-  </footer>
+<footer>
+  Projet HotHotHot 🌸
+</footer>
 
 </body>
 </html>

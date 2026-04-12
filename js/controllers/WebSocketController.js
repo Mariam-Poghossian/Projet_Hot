@@ -54,13 +54,13 @@ class WebSocketController {
 
     this._socket.addEventListener("open", () => {
       clearTimeout(timeout);
-      console.log("[WS] Connecté ✓");
+      console.log("[WS] Connecté");
       this._stopPolling();
       this._stopRetry();
       this._usingFallback = false;
 
       this._watchdog = setTimeout(() => {
-        console.warn("[WS] Silencieux — bascule API");
+        console.warn("[WS] Silencieux - bascule API");
         this._usingFallback = true;
         this._socket.close();
         this._startPolling();
@@ -89,7 +89,7 @@ class WebSocketController {
       clearTimeout(timeout);
       clearTimeout(this._watchdog);
       if (!this._usingFallback) {
-        console.warn("[WS] Fermé — bascule API");
+        console.warn("[WS] Fermé - bascule API");
         this._startPolling();
       }
     });

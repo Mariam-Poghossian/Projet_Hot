@@ -28,7 +28,6 @@ body {
   line-height: 1.7;
 }
 
-/* ── HEADER ── */
 header {
   background: white;
   border-bottom: 2px solid var(--border);
@@ -38,7 +37,7 @@ header {
 }
 
 .header-inner {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0.8rem 2rem;
   display: flex;
@@ -74,14 +73,12 @@ nav a:hover {
   color: var(--rose);
 }
 
-/* ── MAIN ── */
 main {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 1.5rem 4rem;
 }
 
-/* ── HERO ── */
 .hero {
   text-align: center;
   padding: 3.5rem 1rem 2.5rem;
@@ -112,7 +109,6 @@ h1 {
   margin: 0 auto;
 }
 
-/* ── SECTIONS ── */
 section {
   padding: 2.5rem 0;
   border-bottom: 1px solid var(--border);
@@ -146,7 +142,6 @@ p {
   font-style: italic;
 }
 
-/* ── TEAM CARDS ── */
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -194,7 +189,6 @@ p {
   color: var(--muted);
 }
 
-/* ── PILLS ── */
 .pills {
   display: flex;
   flex-wrap: wrap;
@@ -212,7 +206,6 @@ p {
   font-weight: 600;
 }
 
-/* ── REPO ── */
 .repo {
   background: white;
   border: 1.5px solid var(--border);
@@ -236,7 +229,6 @@ p {
   text-decoration: underline;
 }
 
-/* ── TABLE ── */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -272,7 +264,6 @@ td:first-child {
   white-space: nowrap;
 }
 
-/* ── DIFFICULTIES ── */
 .diff {
   background: white;
   border: 1.5px solid var(--border);
@@ -294,7 +285,6 @@ td:first-child {
   padding-top: 2px;
 }
 
-/* ── DIAGRAMS ── */
 .diagrams {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -321,7 +311,6 @@ td:first-child {
   margin-bottom: 0.4rem;
 }
 
-/* diagramme de cas d'utilisation scrollable */
 .diagram-scroll {
   background: #ffffff;
   border: 1px solid #d3d1c7;
@@ -360,7 +349,6 @@ td:first-child {
   height: auto;
 }
 
-/* ── RETRO ── */
 .retro {
   background: white;
   border: 1.5px solid var(--border);
@@ -368,7 +356,6 @@ td:first-child {
   padding: 1.4rem;
 }
 
-/* ── FOOTER ── */
 footer {
   text-align: center;
   padding: 1.5rem;
