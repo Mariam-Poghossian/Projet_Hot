@@ -40,9 +40,9 @@ class AlertView {
       <span class="av-badge" aria-live="polite" style="display:none">0</span>
     `;
 
-    const actions = headerInner.querySelector(".header-actions");
-    if (actions) {
-      headerInner.insertBefore(this._bellWrapper, actions);
+    const nav = headerInner.querySelector("nav");
+    if (nav) {
+      nav.appendChild(this._bellWrapper);
     } else {
       headerInner.appendChild(this._bellWrapper);
     }

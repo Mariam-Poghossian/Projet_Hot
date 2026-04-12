@@ -19,21 +19,18 @@ class AlertController {
    * @param {{ nom: string, valeur: number }} capteurInt
    */
   analyse(capteurExt, capteurInt) {
-    // 1. Mise à jour historique min/max
+
     this.historyModel.update(capteurExt.valeur, capteurInt.valeur);
 
-    // 2. Détection des alertes
     const alertes = AlertModel.check(capteurExt, capteurInt);
 
     if (alertes.length > 0) {
-      // 3a. Affichage dans le panneau + toast
+
       this.alertView.afficher(alertes);
 
-      // 3b. Notification système cliquable
       this.notificationView.notifier(alertes);
     }
 
-    // 4. Synthèse journalière (toujours rafraîchie)
     this.alertView.renderSynthese(this.historyModel.getSummary());
   }
 }

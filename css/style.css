@@ -28,7 +28,6 @@ body {
   flex-direction: column;
 }
 
-/* ── HEADER ── */
 header {
   background: white;
   border-bottom: 2px solid var(--border);
@@ -82,7 +81,6 @@ nav a.active {
   color: var(--rose);
 }
 
-/* ── HEADER AUTH ── */
 .header-actions {
   display: flex;
   align-items: center;
@@ -137,7 +135,6 @@ nav a.active {
 
 .hidden { display: none !important; }
 
-/* ── MAIN ── */
 main {
   max-width: 900px;
   margin: 0 auto;
@@ -146,7 +143,6 @@ main {
   width: 100%;
 }
 
-/* ── HERO ── */
 .hero {
   text-align: center;
   padding: 3rem 1rem 2rem;
@@ -164,7 +160,6 @@ main {
   font-size: 1rem;
 }
 
-/* ── ONGLETS ── */
 .tabs {
   display: flex;
   gap: 0.5rem;
@@ -197,7 +192,6 @@ main {
   border-bottom: 2px solid var(--rose);
 }
 
-/* ── CONTENU ONGLETS ── */
 .tab-content {
   display: none;
 }
@@ -206,7 +200,6 @@ main {
   display: block;
 }
 
-/* ── CAPTEURS GRID ── */
 .capteurs-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -282,7 +275,6 @@ main {
   text-align: center;
 }
 
-/* ── FILTRES ── */
 .filters {
   display: flex;
   flex-direction: row;
@@ -319,7 +311,7 @@ main {
   color: var(--rose);
   border-color: var(--rose);
 }
-/* ── SELECT FILTRES ── */
+
 .filter-select {
   flex: 1;
   background: white;
@@ -345,7 +337,6 @@ main {
   color: var(--rose);
 }
 
-/* ── PLACEHOLDER DATA ── */
 .data-placeholder {
   background: var(--rose-pale);
   border: 1.5px dashed var(--border);
@@ -356,14 +347,12 @@ main {
   font-size: 0.88rem;
 }
 
-/* ── RESPONSIVE ── */
 @media (max-width: 600px) {
   .header-inner { padding: 0.6rem 1rem; }
   main { padding: 1.5rem 1rem; }
   .capteur-valeur { font-size: 2.2rem; }
 }
 
-/* ── FOOTER ── */
 footer {
   text-align: center;
   padding: 1.2rem;
@@ -408,5 +397,40 @@ footer {
 
   .filters {
     flex-direction: column;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .header-inner {
+    display: grid;
+    grid-template-areas:
+      "logo actions"
+      "nav  nav";
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    gap: 0.4rem;
+  }
+
+  .logo-link    { grid-area: logo; }
+  .header-actions { grid-area: actions; justify-content: flex-end; margin-left: 0; }
+
+  nav {
+    grid-area: nav;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 0.3rem;
+    overflow-x: auto;
+    padding-bottom: 0.2rem;
+  }
+
+  nav a, nav button {
+    white-space: nowrap;
+    font-size: 0.82rem;
+    padding: 0.3rem 0.75rem;
+  }
+  .av-bell {
+    margin-left: auto;
   }
 }

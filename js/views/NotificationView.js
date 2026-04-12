@@ -1,6 +1,6 @@
 class NotificationView {
   constructor() {
-    this._permission = Notification.permission; // "default" | "granted" | "denied"
+    this._permission = Notification.permission;
     this._requestPermissionOnInteraction();
   }
 
@@ -36,12 +36,12 @@ class NotificationView {
       const titre = alerte.type === "danger" ? "⚠ Alerte HotHotHot" : "ℹ Info HotHotHot";
       const options = {
         body: alerte.msg,
-        icon: "img/Logo.png",        // icône de votre logo
-        badge: "img/Logo.png",       // petite icône sur mobile
-        tag: `hothothot-${alerte.type}-${Date.now()}`, // tag unique = pas de doublons
-        requireInteraction: alerte.type === "danger",  // les alertes danger restent jusqu'au clic
+        icon: "img/Logo.png",
+        badge: "img/Logo.png",
+        tag: `hothothot-${alerte.type}-${Date.now()}`,
+        requireInteraction: alerte.type === "danger",
         data: {
-          url: window.location.href, // URL de la page courante
+          url: window.location.href,
           msg: alerte.msg,
           type: alerte.type
         }

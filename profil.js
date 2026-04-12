@@ -15,7 +15,6 @@ class ProfilPage {
   }
 }
 
-// Initialisation + exposition pour le onclick HTML
 const profil = new ProfilPage();
 
 function logout() { profil.logout(); }
